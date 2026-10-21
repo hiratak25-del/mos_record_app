@@ -28,9 +28,19 @@ class DashboardController extends Controller
             ->where('correct_rate', '>=', 90)
             ->count();
 
+             $achievementMessage = null;
+
         $weeklyAchievementRate = $weeklyTotal > 0
             ? ($weeklyHighScore / $weeklyTotal) * 100
             : 0;
+
+           if ( $weeklyAchievementRate >=50){
+             $achievementMessage = 'これからも頑張りましょう！';
+           } elseif( $achievementMessage >=70){
+             $achievementMessage = 'もう少し頑張りましょう';
+           }elseif( $achievementMessage >=90){
+             $achievementMessage = 'この調子でいきましょう！！';
+           }
         return view(
             'dashboard',
             compact(
