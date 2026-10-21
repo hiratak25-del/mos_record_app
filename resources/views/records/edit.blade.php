@@ -5,17 +5,17 @@
         @csrf
         @method('PUT')
 
-        <div class="w-1/2 mx-auto w flex gap-5 justify-center mb-5">
-            <label class="w-1/4 bg-blue-300 py-2 px-4 rounded-lg text-center">学習日</label>
-            <input class="w-3/4 border pl-2" type="date" name="study_date" value="{{ old('study_date') }}">
+        <div class="max-w-2xl mx-auto w flex gap-5 justify-center mb-5  h-10">
+            <label class="w-1/3 bg-blue-300 py-2 px-4 rounded-lg text-center">学習日</label>
+            <input class="w-2/3 border pl-2" type="date" name="study_date" value="{{ old('study_date') }}">
             @error('study_date')
                 <p>{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="w-1/2 mx-auto flex gap-5 justify-center mb-5">
-            <label class="w-1/4 bg-blue-300 py-2 px-4 rounded-lg text-center">カテゴリ</label>
-            <select class="w-3/4 border pl-2" name="category" id="category">
+        <div class="max-w-2xl mx-auto flex gap-5 justify-center mb-5 h-10">
+            <label class="w-1/3 bg-blue-300 py-2 px-4 rounded-lg text-center">カテゴリ</label>
+            <select class="w-2/3 border pl-2" name="category" id="category">
                 <option value="">選択してください</option>
                 <option value="Word_Specialist">Word_Specialist</option>
                 <option value="Excel_Specialist">Excel_Specialist</option>
@@ -29,20 +29,20 @@
             @enderror
         </div>
 
-        <div class="mx-auto w-1/2 flex gap-5 justify-center mb-5">
-            <label class="w-1/4 bg-blue-300 py-2 px-4 rounded-lg text-center">達成時間(分)</label>
-            <input class="w-3/4 border pl-3" type="text" name="test_time" placeholder="00:00" value="{{ old('test_time') }}">
+        <div class="mx-auto max-w-2xl flex gap-5 justify-center mb-5 h-10">
+            <label class="w-1/3 bg-blue-300 py-2 px-4 rounded-lg text-center">達成時間(分)</label>
+            <input class="w-2/3 border pl-3" type="text" name="test_time" placeholder="00:00" value="{{ old('test_time') }}">
             @error('test_time')
                 <p>{{ $message }}</p>
             @enderror
         </div>
 
-         <div class="mx-auto w-1/2 flex gap-5 justify-center mb-5">
-            <label class="w-1/4 bg-blue-300 py-2 rounded-lg text-center">
+         <div class="mx-auto max-w-2xl flex gap-5 justify-center mb-5 h-10">
+            <label class="w-1/3 bg-blue-300 py-2 rounded-lg text-center">
                 正答率(%)
             </label>
 
-            <input class="w-3/4 border pl-2" type="number" name="correct_rate" min="0" max="100"
+            <input class="w-2/3 border pl-2" type="number" name="correct_rate" min="0" max="100"
                 value="{{ old('correct_rate') }}">
 
             @error('correct_rate')
@@ -50,17 +50,17 @@
             @enderror
         </div>
 
-        <div class="mx-auto w-1/2 flex gap-5 justify-center mb-5">
-            <label class="w-1/4 bg-blue-300 py-2 px-4 rounded-lg text-center">学習時間（分）</label>
-            <input class="w-3/4 border pl-3" type="number" name="minutes" value="{{ old('minutes') }}">
+        <div class="mx-auto max-w-2xl flex gap-5 justify-center mb-5 h-10">
+            <label class="w-1/3 bg-blue-300 py-2 px-4 rounded-lg text-center">学習時間（分）</label>
+            <input class="w-2/3 border pl-3" type="number" name="minutes" value="{{ old('minutes') }}">
             @error('minutes')
                 <p>{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="mx-auto w-1/2 flex flex-col gap-5 justify-center mb-5">
-            <label class="w-1/4 bg-blue-300 py-2 px-4 rounded-lg text-center">メモ</label>
-            <textarea class="border h-40 py-1 px-2" name="memo">{{ old('memo') }}</textarea>
+        <div class="mx-auto max-w-2xl flex gap-5 justify-center mb-5">
+            <label class="w-1/3 bg-blue-300 py-2 px-4 rounded-lg text-center h-10">メモ</label>
+            <textarea class="w-2/3 border h-20 py-1 px-2" name="memo">{{ old('memo') }}</textarea>
         </div>
         <div class="pb-5">
             <button class="bg-green-400 py-2 px-4 rounded-lg text-center mx-auto justify-center block text-white"

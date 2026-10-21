@@ -6,6 +6,9 @@
         <a class="text-white bg-blue-400 p-4 rounded-lg" href="{{ route('records.create') }}">
             学習記録を追加
         </a>
+         <a class="text-white bg-orange-400 p-4 rounded-lg" href="{{ route('dashboard') }}">
+            ダッシュボードへ
+        </a>
     </div>
      @if ($hasHighScore)
                     <div class="text-center mb-6">
