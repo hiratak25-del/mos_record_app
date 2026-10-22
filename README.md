@@ -1,58 +1,152 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# MOS学習記録アプリ
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 概要
 
-## About Laravel
+MOS（Microsoft Office Specialist）の資格取得に向けた学習を記録・管理するためのWebアプリケーションです。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+日々の学習時間や模擬試験の結果を記録し、学習の進捗状況を可視化することで、継続的な学習をサポートします。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 主な機能
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **学習記録の登録**  
+  学習日、学習カテゴリ、模擬試験のタイム、学習時間、正答率、メモを登録できます。
 
-## Learning Laravel
+- **学習記録の一覧表示**  
+  登録した学習記録を一覧で確認できます。
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **学習記録の編集・削除**  
+  登録済みの学習記録を編集・削除できます。
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **ダッシュボード**  
+  学習状況や週間の学習時間などを確認できます。
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+- **週間学習目標の進捗確認**  
+  週間の学習回数を集計し、目標に対する達成状況を確認できます。
 
-## Agentic Development
+- **高得点の達成状況の確認**  
+  模擬試験の正答率を記録し、高得点の達成状況を確認できます。
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+- **ユーザー認証**  
+  ユーザーごとに学習記録を管理します。
+
+## 使用技術
+
+- PHP
+- Laravel
+- MySQL
+- HTML
+- CSS
+- JavaScript
+- Tailwind CSS
+- Vite
+
+## 開発環境
+
+- PHP 8.5
+- Laravel 13
+- MySQL
+- Node.js / npm
+- Composer
+
+※バージョンは開発時の環境に基づいています。実際の環境に合わせて調整してください。
+
+## セットアップ方法
+
+### 1. リポジトリをクローン
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone <リポジトリのURL>
+cd mos_record_app
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. PHPパッケージをインストール
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. 環境設定ファイルを作成
 
-## Code of Conduct
+```bash
+cp .env.example .env
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+`.env` ファイルを開き、データベースの接続情報などを設定してください。
 
-## Security Vulnerabilities
+### 4. アプリケーションキーを生成
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan key:generate
+```
 
-## License
+### 5. データベースを作成・設定
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MySQLにデータベースを作成し、`.env` の接続情報を設定します。
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=ユーザー名
+DB_PASSWORD=パスワード
+```
+
+※実際の開発環境に応じて変更してください。
+
+### 6. マイグレーションを実行
+
+```bash
+php artisan migrate
+```
+
+### 7. フロントエンドの依存関係をインストール
+
+```bash
+npm install
+```
+
+### 8. アプリケーションを起動
+
+ターミナルで以下を実行します。
+
+```bash
+php artisan serve
+```
+
+別のターミナルでフロントエンドの開発用ビルドを起動します。
+
+```bash
+npm run dev
+```
+
+ブラウザで以下にアクセスしてください。
+
+```text
+http://127.0.0.1:8000
+```
+
+## データベース
+
+学習記録には、主に以下の情報を使用します。
+
+| 項目 | 内容 |
+|---|---|
+| 学習日 | 学習を行った日付 |
+| カテゴリ | 学習したMOSの科目など |
+| 模擬試験タイム | 模擬試験にかかった時間 |
+| 学習時間 | 学習に費やした時間 |
+| 正答率 | 模擬試験の正答率 |
+| メモ | 学習内容や振り返り |
+
+## 今後の改善予定
+
+- 学習時間や正答率の推移をグラフで可視化
+- 学習カテゴリごとの進捗状況の表示
+- 学習目標や達成状況のさらなる充実
+
+## 制作目的
+
+学習の継続と進捗管理を支援することを目的に制作しました。
+
+Laravelを使用したWebアプリケーションの開発を通じて、データベース設計、CRUD処理、ユーザー認証、データ集計などの実装を学習しました。
