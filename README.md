@@ -150,3 +150,9 @@ http://127.0.0.1:8000
 学習の継続と進捗管理を支援することを目的に制作しました。
 
 Laravelを使用したWebアプリケーションの開発を通じて、データベース設計、CRUD処理、ユーザー認証、データ集計などの実装を学習しました。
+
+
+
+## License
+
+This project is for learning purposes.
